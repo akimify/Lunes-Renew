@@ -1,4 +1,4 @@
-name: Lunes 登录保活
+name: Lunes-Keep
 
 on:
   workflow_dispatch:
@@ -17,12 +17,12 @@ jobs:
       - name: 📥 下载私库脚本
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.repository_owner }}/Lunes-Renew-Private
+          repository: ${{ github.repository_owner }}/Lunes-Keep-Private
           token: ${{ secrets.PRIVATE_REPO_TOKEN }}
           path: private
 
       - name: 📂 移动脚本到工作目录
-        run: mv private/lunes_renew.py lunes_renew.py
+        run: mv private/lunes_keep.py lunes_keep.py
 
       - name: 🐍 设置 Python
         uses: actions/setup-python@v4
@@ -58,7 +58,7 @@ jobs:
           TG_BOT:         ${{ secrets.TG_BOT }}
         run: |
           xvfb-run --auto-servernum --server-args="-screen 0 1920x1080x24" \
-            python lunes_renew.py
+            python lunes_keep.py
 
       - name: 📸 上传调试截图
         if: always()
