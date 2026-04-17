@@ -11,8 +11,6 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - name: 📥 下载公库代码
-        uses: actions/checkout@v4
 
       - name: 📥 下载私库脚本
         uses: actions/checkout@v4
